@@ -1,3 +1,7 @@
+[
+![Get the add-on for Firefox](https://img.shields.io/badge/Get%20the%20add--on%20for%20Firefox-AMO-orange)
+](https://addons.mozilla.org/en-US/firefox/addon/quick-dictionary-ai-explainer/)
+
 # Quick Dictionary + AI Explainer (Firefox Add-on)
 
 Highlight text on any webpage to instantly see a dictionary definition, and optionally ask **Gemini** to explain it in simple terms.
