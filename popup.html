@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Quick Dictionary + AI Explainer</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="row">
+      <input id="word" type="text" placeholder="Type or paste a word or sentence..." />
+      <button id="btnLookup" class="primary" title="Dictionary lookup">Look up</button>
+    </div>
+    <div class="row" style="margin-top:8px;">
+      <button id="btnExplain">Explain with AI</button>
+      <button id="btnFollowUp" style="display:none;">Ask Follow-up</button>
+      <a id="openOptions" href="#" title="Settings">⚙️</a>
+      <a id="openHistory" href="#" title="Chat History">📜</a>
+    </div>
+    
+    <!-- Follow-up input section (hidden initially) -->
+    <div id="followupSection" class="followup-container">
+      <div class="followup-label">Ask a follow-up question:</div>
+      <input id="followupInput" type="text" placeholder="e.g., Can you explain this more simply?" class="followup-input" />
+      <div class="followup-actions">
+        <button id="cancelFollowup" class="followup-btn followup-btn-cancel">Cancel</button>
+        <button id="sendFollowup" class="followup-btn followup-btn-send">Send</button>
+      </div>
+    </div>
+    <div class="toggle-container" style="margin-top:6px;">
+      <span>Auto-lookup on text selection</span>
+      <label class="toggle-switch">
+        <input id="autoLookup" type="checkbox" />
+        <span class="toggle-slider"></span>
+      </label>
+    </div>
+    <div class="divider"></div>
+    <div id="result" class="muted">Results will appear here.</div>
+    <script src="popup.js"></script>
+  </body>
+</html>

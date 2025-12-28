@@ -1,0 +1,56 @@
+{
+  "manifest_version": 2,
+  "name": "Quick Dictionary + AI Explainer",
+  "version": "1.1.8",
+  "description": "Highlight a word to see definitions instantly and get AI explain it for you.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{109314a5-80af-4cf5-981e-aaff76eb37cd}",
+      "strict_min_version": "81.0"
+    }
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "contextMenus",
+    "https://api.dictionaryapi.dev/*",
+    "https://generativelanguage.googleapis.com/*"
+  ],
+  "web_accessible_resources": [
+    "style.css"
+  ],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": false
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
