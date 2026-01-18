@@ -9,10 +9,15 @@ const saveBtn = document.getElementById('saveBtn');
 
 // Available Gemini models
 const GEMINI_MODELS = [
-  { id: 'gemini-2.0-flash', name: 'Flash 2.0 (smart)' },
+  { id: 'gemini-2.5-flash-lite', name: 'Flash 2.5 lite (new)' },
   
   { id: 'gemini-2.5-flash', name: 'Flash 2.5 (Newest)' },
-  { id: 'gemini-1.5-pro-latest', name: 'Gemini 1.5 Pro (Latest)' }
+  
+  { id: 'gemini-1.5-pro-latest', name: 'Gemini 1.5 Pro (Latest)' },
+  
+   { id: 'gemini-2.5-pro', name: 'Pro 2.5 (Most Capable)' },
+  
+   { id: 'gemini-3-flash-preview', name: 'Flash 3 (Newest)' },
 ];
 
 // Populate model dropdown
