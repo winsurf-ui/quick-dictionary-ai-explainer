@@ -4,6 +4,7 @@ const apiKeyEl = document.getElementById('apiKey');
 const modelEl = document.getElementById('model');
 const autoLookupEl = document.getElementById('autoLookup');
 const darkModeEl = document.getElementById('darkMode');
+const includePageContextEl = document.getElementById('includePageContext');
 const statusEl = document.getElementById('status');
 const saveBtn = document.getElementById('saveBtn');
 
@@ -52,6 +53,11 @@ function save() {
     }
   }
   
+  // Add page context setting
+  if (includePageContextEl) {
+    settings.includePageContext = includePageContextEl.checked;
+  }
+  
   browser.storage.sync.set(settings).then(() => {
     statusEl.textContent = 'Saved ✅';
     statusEl.className = 'hint ok';
@@ -68,17 +74,24 @@ function save() {
 function restore() {
   browser.storage.sync.get({
     apiKey: '',
-    model: 'gemini-2.0-flash',
+    model: GEMINI_MODELS[0].id,
     autoLookup: true,
-    darkMode: true
+    darkMode: true,
+    includePageContext: false
   }).then((cfg) => {
     apiKeyEl.value = cfg.apiKey;
-    modelEl.value = cfg.model;
+    // Use first model if no model is saved or if saved model is invalid
+    modelEl.value = cfg.model || GEMINI_MODELS[0].id;
     autoLookupEl.checked = cfg.autoLookup;
     
     // Set dark mode toggle and apply theme
     if (darkModeEl) {
       darkModeEl.checked = cfg.darkMode !== false;
+    }
+    
+    // Set page context toggle
+    if (includePageContextEl) {
+      includePageContextEl.checked = cfg.includePageContext || false;
     }
     
     // Apply dark mode to page
